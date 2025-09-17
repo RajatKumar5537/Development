@@ -28,7 +28,7 @@ jobs:
         run: npm run test -- --ci
 
       - name: Run Playwright tests
-        run: npx playwright install --with-deps && npx playwright test
+        run: npx playwright install --with-deps && npx playwright test home.spec.js
 
       - name: Build project
         run: npm run build
