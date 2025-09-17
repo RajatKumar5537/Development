@@ -1,6 +1,6 @@
 module.exports = {
   testEnvironment: 'jsdom',
-  testMatch: ['**/tests/**/*.test.js'], // only run *.test.js with Jest
+  testMatch: ['**/tests/**/*.test.js'],
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   transform: {
     '^.+\\.(js|jsx)$': ['babel-jest', {
@@ -10,9 +10,5 @@ module.exports = {
       ]
     }]
   },
-  testPathIgnorePatterns: [
-    '<rootDir>/tests/**/*.spec.js', // ignore Playwright specs
-    '<rootDir>/tests/e2e/',         // ignore any e2e/playwright folder
-    '<rootDir>/tests/playwright/'
-  ]
+  testPathIgnorePatterns: ['<rootDir>/tests/playwright/']
 }
