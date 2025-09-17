@@ -27,8 +27,16 @@ jobs:
       - name: Run Jest tests
         run: npm run test -- --ci
 
-      - name: Run Playwright tests
-        run: npx playwright install --with-deps && npx playwright test home.spec.js
-
-      - name: Build project
+      - name: Build app
         run: npm run build
+
+      - name: Start app in background
+        run: |
+          nohup npm run start &>/dev/null &
+          npx wait-on http://localhost:3000 -t 60000
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      - name: Run Playwright tests
+        run: npx playwright test tests/home.spec.js
