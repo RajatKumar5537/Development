@@ -40,6 +40,7 @@ jobs:
 
       - name: Run Playwright tests
         run: npx playwright test tests/playwright
+        
       - name: Build Docker image
         run: docker build -t rajat864/dummy-sdlc:latest .
 
